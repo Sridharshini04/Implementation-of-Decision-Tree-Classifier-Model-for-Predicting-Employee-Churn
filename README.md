@@ -42,7 +42,7 @@ RegisterNumber: 212222080050
 ```
 ```
 import pandas as pd
-data=pd.read_csv("C:/Users/admin/Downloads/Employee.csv")
+data=pd.read_csv("/content/Employee.csv")
 data.head()
 data.info()
 data.isnull().sum()
@@ -51,7 +51,8 @@ from sklearn.preprocessing import LabelEncoder
 le=LabelEncoder()
 data["salary"]=le.fit_transform(data["salary"])
 data.head()
-x=data[["satisfaction_level","last_evaluation","number_project","average_montly_hours","time_spend_company","Work_accident","promotion_last_5years","salary"]]
+x=data[["satisfaction_level","last_evaluation","number_project","average_montly_hours","time_spend_company",
+          "Work_accident","promotion_last_5years","salary"]]
 x.head()
 y=data["left"]
 from sklearn.model_selection import train_test_split
@@ -63,12 +64,13 @@ y_pred=dt.predict(x_test)
 from sklearn import metrics
 accuracy=metrics.accuracy_score(y_test,y_pred)
 accuracy
+dt.predict([[0.5,0.8,9,260,6,0,1,2]])
 ```
 
 ## Output:
-Sample data and Accuracy:
+![image](https://github.com/user-attachments/assets/7f221d1f-b90d-4313-8c3b-7b5356bb1807)
 
-![image](https://github.com/user-attachments/assets/29d927e5-5558-4dba-9100-7103ea98a22c)
+![image](https://github.com/user-attachments/assets/73c73f0b-0904-49f9-9ace-384828622d0d)
 
 ## Result:
 Thus the program to implement the  Decision Tree Classifier Model for Predicting Employee Churn is written and verified using python programming.
